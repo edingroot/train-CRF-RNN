@@ -15,8 +15,8 @@ def main():
   solver = caffe.SGDSolver('solver.prototxt')
   solver.solve(solver_state) # load even *.caffemodel
 
-  solver.net.set_mode_gpu()
-  solver.net.set_device(0)
+  caffe._caffe.set_mode_gpu()
+  caffe._caffe.set_device(0)
   
   test_interval = 1000
   max_iter = 200000

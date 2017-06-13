@@ -45,8 +45,8 @@ interp_surgery(solver.net, interp_layers)
 
 # copy base weights for fine-tuning
 solver.net.copy_from(base_weights)
-solver.net.set_mode_gpu()
-solver.net.set_device(0)
+caffe._caffe.set_mode_gpu()
+caffe._caffe.set_device(0)
 
 ## control layer's initialization
 halt_training = False
