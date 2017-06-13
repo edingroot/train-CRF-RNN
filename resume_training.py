@@ -12,11 +12,11 @@ def main():
   iter_num = process_arguments(sys.argv)
   solver_state = 'models/train_iter_{}.solverstate'.format(iter_num)
 
-  solver = caffe.SGDSolver('solver.prototxt')
-  solver.solve(solver_state) # load even *.caffemodel
-
   caffe._caffe.set_mode_gpu()
   caffe._caffe.set_device(0)
+  
+  solver = caffe.SGDSolver('solver.prototxt')
+  solver.solve(solver_state) # load even *.caffemodel
   
   test_interval = 1000
   max_iter = 200000
